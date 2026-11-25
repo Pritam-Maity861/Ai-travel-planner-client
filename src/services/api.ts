@@ -1,7 +1,8 @@
 import type { ReviewRequest, TripCreateRequest, TripHistoryItem, TripResponse } from '../types/trip'
 import type { AuthResponse, User } from '../types/user'
 
-const API_BASE = '/api/v1'
+const API_ORIGIN = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '')
+const API_BASE = `${API_ORIGIN}/api/v1`
 const TOKEN_KEY = 'aetheria_auth_token'
 
 export function getStoredToken(): string | null {
